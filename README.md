@@ -36,6 +36,6 @@ Tracks every prediction against actual outcomes, calculates Brier score accuracy
 
 ## What's next for
 ### Wave 2
-- Design smart contract and agent architecture \
+- Design smart contract and agent architecture
 ### Wave 3
 - Actual implementation of smart contract and agent architecture
