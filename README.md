@@ -28,7 +28,7 @@ Planner, Researcher, Critic, Analyst, and Reporter agents work together using Ba
 
 Truly Autonomous
 
-Receives requests via Agent Commerce Protocol, analyzes markets using multi-source search, delivers structured JSON predictions, and receives USDC payment—all without human intervention.
+analyzes markets using multi-source search, delivers structured JSON predictions, and receives USDC payment—all without human intervention.
 
 Self-Improving System
 
