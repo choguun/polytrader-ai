@@ -35,7 +35,7 @@ Self-Improving System
 Tracks every prediction against actual outcomes, calculates Brier score accuracy automatically, and improves over time while showing transparent historical performance to buyers.
 
 ## What's next for
-Wave 2
-- Design smart contract and agent architecture
-Wave 3
+### Wave 2
+- Design smart contract and agent architecture \
+### Wave 3
 - Actual implementation of smart contract and agent architecture
