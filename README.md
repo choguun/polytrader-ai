@@ -55,6 +55,8 @@ Tracks every prediction against actual outcomes, calculates Brier score accuracy
 
 ## Architecture
 
+### System Overview
+
 ```
 ┌─────────────────────────────────────────────────────┐
 │                    AI System                        │
@@ -86,3 +88,112 @@ Tracks every prediction against actual outcomes, calculates Brier score accuracy
     │   Expert  │   │   Expert   │   │  Expert │
     └───────────┘   └────────────┘   └─────────┘
 ```
+
+### Vault Architecture & Smart Contract System
+
+The vault architecture enables fully autonomous portfolio management where users deposit USDC and AI agents dynamically allocate capital across prediction market strategies.
+
+```
+┌──────────────────────────────────────────────────────────────┐
+│                     Vault Smart Contract                     │
+│                         (Base L2)                            │
+└──────────────────────────────────────────────────────────────┘
+                              │
+                              │ User Deposits USDC
+                              ▼
+                    ┌─────────────────┐
+                    │  Vault Treasury  │
+                    │   (USDC Pool)    │
+                    └─────────────────┘
+                              │
+                              │ AI Agent Allocation
+                              ▼
+        ┌─────────────────────┴─────────────────────┐
+        │                                           │
+        │         Portfolio Optimizer AI            │
+        │                                           │
+        │  • Risk Assessment                        │
+        │  • Kelly Criterion Sizing                 │
+        │  • Correlation Analysis                   │
+        │  • Dynamic Rebalancing                    │
+        │  • Historical Performance Weighting       │
+        │                                           │
+        └─────────────────────┬─────────────────────┘
+                              │
+                              │ Strategy Allocation
+                              ▼
+        ┌─────────────────────────────────────────────┐
+        │              Category Strategies            │
+        └─────────────────────────────────────────────┘
+                              │
+                ┌─────────────┼─────────────┐
+                │             │             │
+                ▼             ▼             ▼
+        ┌──────────────┐ ┌──────────┐ ┌──────────┐
+        │    Crypto    │ │ Politics │ │  Sports  │
+        │   Strategy   │ │ Strategy │ │ Strategy │
+        │              │ │          │ │          │
+        │ • 30-40%     │ │ • 30-40% │ │ • 20-30% │
+        │ • BTC/ETH    │ │ • Elections│ │ • Outcomes│
+        │ • DeFi       │ │ • Policy  │ │ • Player  │
+        │ • Regulatory │ │ • Geopolitics│ • Stats  │
+        └──────────────┘ └──────────┘ └──────────┘
+                │             │             │
+                └─────────────┼─────────────┘
+                              ▼
+                    ┌─────────────────┐
+                    │  Trade Executor  │
+                    │                 │
+                    │ • Polymarket    │
+                    │ • Kalshi        │
+                    └─────────────────┘
+```
+
+### Vault Smart Contract Features
+
+**Core Functions:**
+- `deposit(uint256 amount)` - Users deposit USDC into vault
+- `withdraw(uint256 shares)` - Users redeem shares for USDC + profits
+- `allocate(Strategy[] strategies)` - AI agent allocates funds across categories
+- `rebalance()` - AI agent rebalances portfolio based on performance
+- `executeTradeOrder(bytes order)` - Executes trades on prediction markets
+
+**Strategy Allocation Mechanism:**
+
+1. **Portfolio Optimizer AI** analyzes:
+   - Historical performance of each category expert
+   - Current market opportunities across domains
+   - Risk-adjusted returns (Sharpe ratio per category)
+   - Correlation between crypto/politics/sports markets
+   - Market volatility and liquidity
+
+2. **Dynamic Allocation** based on:
+   - **Crypto Strategy (30-40%):** BTC price predictions, ETH moves, DeFi protocol events, regulatory decisions
+   - **Politics Strategy (30-40%):** Elections, policy outcomes, geopolitical events, legislative votes
+   - **Sports Strategy (20-30%):** Game outcomes, player performance, tournament winners, season records
+
+3. **Risk Management:**
+   - Maximum 10% position size per individual market
+   - Kelly Criterion for position sizing
+   - Diversification across 15-25 concurrent positions
+   - Stop-loss at 20% per position
+   - Portfolio volatility target: <15% monthly
+
+4. **Performance Tracking:**
+   - Each category tracks Brier scores independently
+   - Allocation weights adjust based on 30-day rolling performance
+   - Underperforming categories get reduced allocation
+   - Top performer gets increased allocation (up to max limit)
+
+5. **Autonomous Execution:**
+   - AI agent receives analysis from domain experts
+   - Aggregates probabilities using Bayesian methods
+   - Executes trades when edge > 5% vs market price
+   - Automatically claims winnings and compounds into vault
+
+**Vault Economics:**
+- **Management Fee:** 2% annual (0.5% quarterly)
+- **Performance Fee:** 20% of profits above 10% APY
+- **AI Agent Fee:** $0.01-$1 per analysis (paid from vault)
+- **Minimum Deposit:** 100 USDC
+- **Lock Period:** None (withdraw anytime, subject to liquidity)
