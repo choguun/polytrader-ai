@@ -39,3 +39,50 @@ Tracks every prediction against actual outcomes, calculates Brier score accuracy
 - Design smart contract and agent architecture
 ### Wave 3
 - Actual implementation of smart contract and agent architecture
+
+
+### Key Features
+
+- **9-Agent AI System** - Domain-aware orchestration with expert agents: Domain Detection → Domain Experts → Planner → Researcher → Critic → Analyst → Reporter
+- **Domain-Specific Expertise** - Specialized analysis for crypto, politic, and sport markets with dedicated expert agents
+- **Intelligent Pipeline Routing** - Automatically detects domain and routes to appropriate expert agents while maintaining backward compatibility
+- **Bayesian Probability Aggregation** - Mathematical rigor, not just LLM opinions
+- **Smart Search Routing** - 90% free APIs (Brave/Tavily), 10% Valyu (academic) - **93% cost savings**
+- **Agent-to-Agent Commerce** - Monetized via ACP smart contracts on Base L2
+- **Self-Learning System** - Tracks predictions vs outcomes, improves over time
+- **Real-Time Data** - Multi-source search (Brave, Tavily, Valyu)
+- **Platform Support** - Polymarket & Kalshi markets
+
+## Architecture
+
+```
+┌─────────────────────────────────────────────────────┐
+│                    AI System                        │
+└─────────────────────────────────────────────────────┘
+                          │
+                          │
+            ┌─────────────▼──────────────┐
+            │     YieldBet Agent         │
+            │    (Prediction AI)         │
+            └─────────────┬──────────────┘
+                          │
+                          │
+            ┌─────────────▼──────────────┐
+            │   Domain-Aware Orchestrator│
+            │                            │
+            │   • Domain Detection       │
+            │   • Domain Experts         │
+            │   • Planner                │
+            │   • Researcher             │
+            │   • Critic                 │
+            │   • Analyst                │
+            │   • Reporter               │
+            └─────────────┬──────────────┘
+                          │
+          ┌───────────────┼───────────────┐
+          │               │               │
+    ┌─────▼─────┐   ┌─────▼─────┐   ┌────▼────┐
+    │   Crypto  │   │  Politics  │   │  Sports │
+    │   Expert  │   │   Expert   │   │  Expert │
+    └───────────┘   └────────────┘   └─────────┘
+```
